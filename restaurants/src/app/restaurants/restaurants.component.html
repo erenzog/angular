@@ -1,11 +1,19 @@
-<h2>My Restaurants</h2>
-
-<ul class="restaurants">
+<h2>My Heroes</h2>
+<ul class="heroes">
   <li *ngFor="let restaurant of restaurants"
-    [class.selected]="restaurant === selectedRestaurants"
-    (click)="onSelect(restaurant)">
+      [class.selected]="restaurant === selectedRestaurant"
+      (click)="onSelect(restaurant)"
+      >
     <span class="badge">{{restaurant.id}}</span> {{restaurant.name}}
   </li>
 </ul>
 
-<app-restaurant-details [restaurant]="selectedRestaurant"></app-restaurant-details>
+<div *ngIf="selectedRestaurant">
+  <h2>{{selectedRestaurant.name | uppercase}}</h2>
+  <div><span>id: </span>{{selectedRestaurant.id}}</div>
+  <div>
+      <label>name:
+        <input [(ngModel)]="selectedRestaurant.name" placeholder="name">
+      </label>
+  </div>
+</div>
