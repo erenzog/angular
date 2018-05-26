@@ -1,11 +1,7 @@
 <h2>My Restaurants</h2>
 
 <ul class="restaurants">
-  <li *ngFor="let restaurant of restaurants"
-    [class.selected]="restaurant === selectedRestaurants"
-    (click)="onSelect(restaurant)">
+  <li *ngFor="let restaurant of restaurants">
     <span class="badge">{{restaurant.id}}</span> {{restaurant.name}}
   </li>
 </ul>
-
-<app-restaurant-details [restaurant]="selectedRestaurant"></app-restaurant-details>
